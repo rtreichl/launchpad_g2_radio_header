@@ -1,7 +1,7 @@
 #ifndef RADIO_CONF_H_
 #define RADIO_CONF_H_
 
-#include <driver/include/si4735_cmd_prop.h>
+#include <driver/external/include/si4735_cmd_prop.h>
 #include <libs/time.h>
 
 /* Define macros for version */
