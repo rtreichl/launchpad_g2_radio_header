@@ -16,10 +16,12 @@
 
 #include <msp430.h>
 #include <stdint.h>
-#include <menu/menu.h>
-#include <system/rsq.h>
-#include <system/rds.h>
-#include <radio/radio.h>
+#include <driver/driver.h>
+#include <system/fsm.h>
+//#include <menu/menu.h>
+//#include <system/rsq.h>
+//#include <system/rds.h>
+//#include <radio/radio.h>
 #include <settings/radio_configuration.h>
 
 void handler(void);
