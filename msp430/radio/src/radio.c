@@ -25,6 +25,7 @@
 #include <libs/string.h>
 #include <menu/menu.h>
 
+#if
 //----------------------------------------------------------------------------------------
 //
 /// \brief Definition of globals, structs and functions
@@ -310,9 +311,9 @@ uint8_t radio_volume(ENCODER *encoder_left, ENCODER *encoder_right, MENU_STC *me
 	}
 
 	if(volume != 0) {
-		ext_interrupt_enable(SI_INT_INT);
+		//ext_interrupt_enable(SI_INT_INT);
 		si4735_set_property(RX_VOLUME, ((uint16_t)(*volume) * SI4735_VOLUME_MAX) / 100);
-		ext_interrupt_disable(SI_INT_INT);
+		//ext_interrupt_disable(SI_INT_INT);
 		_delay_ms(10);
 		return 1;
 	}
@@ -399,9 +400,9 @@ uint8_t radio_tune_freq(uint16_t freq)
 		radio.settings.frequency = radio_seeking(0);
 	}
 	else {
-		ext_interrupt_enable(SI_INT_INT);
+		//ext_interrupt_enable(SI_INT_INT);
 		si4735_fm_tune_freq(freq);
-		ext_interrupt_disable(SI_INT_INT);
+		//ext_interrupt_disable(SI_INT_INT);
 	}
 	return 0;
 }
@@ -421,9 +422,9 @@ uint8_t radio_tune_freq(uint16_t freq)
 uint16_t radio_seeking(uint8_t up_down)
 {
 	uint8_t resp[8];
-	ext_interrupt_enable(SI_INT_INT);
+	//ext_interrupt_enable(SI_INT_INT);
 	si4735_fm_seek_start(up_down);
-	ext_interrupt_disable(SI_INT_INT);
+	//ext_interrupt_disable(SI_INT_INT);
 	si4735_fm_tune_status(1, 1, resp);
 
 	radio.status.freq_valid = 0;
@@ -636,14 +637,14 @@ uint8_t radio_stand_by()
 	lcd_create_view(0, 0, 0, 0, 2);
 	//radio_brightness(0);
 	//TODO enable interrupt for left button
-	ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
-	ext_interrupt_enable(EN1_TAST_INT);
+	//ext_interrupt_create(EN1_TAST_INT, radio_left_button_interrupt);
+	//ext_interrupt_enable(EN1_TAST_INT);
 	//TODO reconfig one timer with ACLK to cause an interrupt all minute
 	radio_button = 0;
 	while(radio_button != 2) {
 		//_BIS_SR(LPM3_bits + GIE);
 	}
-	ext_interrupt_disable(EN1_TAST_INT);
+	//ext_interrupt_disable(EN1_TAST_INT);
 	//TODO go to lpm mode where ACLK is active
 	//TODO wait until button is pressed
 	//TODO reconfig timer to old state
@@ -659,3 +660,4 @@ void radio_left_button_interrupt()
 {
 	radio_button += 1;
 }
+#endif

@@ -5,7 +5,7 @@
  *      Author: Richard
  */
 
-#ifndef RADIO_NEW_H_
+#ifdef RADIO_NEW_H_
 #define RADIO_NEW_H_
 
 #include <stdint.h>

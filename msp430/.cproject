@@ -83,7 +83,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="system/src/time.c|system/src/station_list_struct.c|system/src/rsq.c|system/src/rds.c|radio|driver/src/opt3001.c|driver/src/pca9534.c|text|menu|system/src/station_list.c|radio/src/radio.c|radio/src/radio_setting_view.c|radio/src/radio_settings.c|menu/src/menu.c|driver/src/pca9530.c|driver/src/pca9632.c|driver/src/tpa2016d2.c|driver/src/lcd.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="system/src/rds.c|system/src/time.c|system/src/station_list_struct.c|system/src/rsq.c|radio|driver/src/opt3001.c|driver/src/pca9534.c|text|menu|system/src/station_list.c|radio/src/radio.c|radio/src/radio_setting_view.c|radio/src/radio_settings.c|menu/src/menu.c|driver/src/pca9530.c|driver/src/pca9632.c|driver/src/tpa2016d2.c|driver/src/lcd.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
