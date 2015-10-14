@@ -40,31 +40,6 @@
 int main (void)
 {
 	WDTCTL = WDTPW + WDTHOLD;
-	//radio_init();
-	basic_clock_init();
-
-	timer_init();
-
-
-	i2c_init(RADIO_SCLK, RADIO_I2C_FREQ);
-
-	P2DIR |= BIT5;
-	P2OUT &= ~BIT5;
-
-	P1DIR |= BIT0;
-	P1OUT |= BIT0;
-
-	//P1REN |=   BIT5;
-	P1REN |=   BIT3;
-
-	si4735_init(60, RADIO_BOT_FREQ);
-	si4735_fm_seek_start(0);
-	si4735_set_property(RX_VOLUME, 30);
-
-	button_init(&(timer_count[2]));
-	__enable_interrupt();
-
-	P1DIR |= BIT0;
 	handler();
 }
 
